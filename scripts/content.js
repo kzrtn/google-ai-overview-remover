@@ -21,7 +21,11 @@ const observer = new MutationObserver((mutationList, observer) => {
   */
   const peopleAsk = document.querySelector('[class="r2fjmd t0bRye"]')
   if (peopleAsk) {
-    const peopleAskTabContainer = peopleAsk.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement
+    let peopleAskTabContainer = peopleAsk.parentElement.closest('[jsname]')
+    while (peopleAskTabContainer.getAttribute('jsname') !== 'yEVEwb') {
+      peopleAskTabContainer = peopleAskTabContainer.parentElement.closest('[jsname]')
+    }
+
     peopleAskTabContainer.remove()
     console.log("Removed AI suggested question and answer in 'People Also Ask'")
   }
