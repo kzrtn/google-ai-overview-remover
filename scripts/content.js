@@ -3,7 +3,7 @@ let disabledAIModeTab = false
 let disabledAIOverview = false
 
 const observer = new MutationObserver((mutationList, observer) => {
-  if (!removeAIOverview) removeAIOverview()
+  if (!disabledAIOverview) removeAIOverview()
   if (!disabledAIModeTab) removeAIModeTab()
   
   removeAIfromPeopleAlsoAsk()
