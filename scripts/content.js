@@ -36,11 +36,9 @@ the two without the user opening the tabs first
 */
 const removeAIfromPeopleAlsoAsk = () => {
   const peopleAsk = document.querySelector('[class="r2fjmd t0bRye"]')
+  
   if (peopleAsk) {
-    let peopleAskTabContainer = peopleAsk.closest('[jsname]')
-    while (peopleAskTabContainer && peopleAskTabContainer.getAttribute('jsname') !== 'yEVEwb') {
-      peopleAskTabContainer = peopleAskTabContainer.parentElement?.closest('[jsname]')
-    }
+    const peopleAskTabContainer = peopleAsk.closest('div[jsname="yEVEwb"]')
 
     if (peopleAskTabContainer) {
       peopleAskTabContainer.remove()
