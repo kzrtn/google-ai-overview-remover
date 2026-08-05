@@ -21,13 +21,17 @@ const observer = new MutationObserver((mutationList, observer) => {
   */
   const peopleAsk = document.querySelector('[class="r2fjmd t0bRye"]')
   if (peopleAsk) {
-    let peopleAskTabContainer = peopleAsk.parentElement.closest('[jsname]')
-    while (peopleAskTabContainer.getAttribute('jsname') !== 'yEVEwb') {
-      peopleAskTabContainer = peopleAskTabContainer.parentElement.closest('[jsname]')
+    let peopleAskTabContainer = peopleAsk.closest('[jsname]')
+    while (peopleAskTabContainer && peopleAskTabContainer.getAttribute('jsname') !== 'yEVEwb') {
+      peopleAskTabContainer = peopleAskTabContainer.parentElement?.closest('[jsname]')
     }
 
-    peopleAskTabContainer.remove()
-    console.log("Removed AI suggested question and answer in 'People Also Ask'")
+    if (peopleAskTabContainer) {
+      peopleAskTabContainer.remove()
+      console.log("Removed AI suggested question and answer in 'People Also Ask'")
+    } else {
+      console.log("FATAL ERROR: No parent container for AI suggested answer found.")
+    }
   }
 })
 
